@@ -13,7 +13,7 @@ The advantage of using Jekyll is that:
 - git control
 <!--more-->
 
-Steps:
+Steps
 ---
 * Follow the instruction in [Github Pages][Github-pages], select to create `Project site` -> `Start from scratch`. Do not choose `Generate a site`, because it will offer you a web template and generate some web-related files that you do not need in Jekyll.
 
@@ -36,12 +36,17 @@ $ jekyll serve --detach
 
 * command `jekyll build` whenever you do modification.
 
-Notes:
+Notes
 ---
 There are some inconvenient facts that [Markdown is not rendering line spacing/block quotes properly with Jekyll][Issue]. When you do want to insert a break tag using Markdown, you end a line with two or more spaces, then type return. Which, sadly, is a part of Markdown that Redcarpet doesn't conform to. The workaround I use is adding `<br /> ` where you want to break a single line.
 
+After doing this, I found there is another way to make my static website. Since I am much familier with python, I was wondering if I should change to use Pelican instead of Jekyll. Anyway, I will let this to be a futher try.
 
-Reference:
+[Personal website powered by Bootstrap, Pelican, and GitHub Pages][R4]<br />
+[Setting up a blog with Pelican and GitHub Pages][R5]
+
+
+Reference
 ---
 [使用 GitHub Pages 和 Jekyll 來建立 Blog][R1]<br />
 [Using Jekyll as a static site generator with GitHub Pages][R2]<br />
@@ -54,3 +59,5 @@ Reference:
 [R1]: http://xareelee.github.io/development_notes/%E4%BD%BF%E7%94%A8-GitHub-Pages-%E5%92%8C-Jekyll-%E4%BE%86%E5%BB%BA%E7%AB%8B-Blog/
 [R2]: https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/
 [R3]: http://stackoverflow.com/questions/36011266/how-to-configure-website-menu-in-jekyll
+[R4]: https://github.com/donnemartin/donnemartin.github.io
+[R5]: http://cyrille.rossant.net/pelican-github/

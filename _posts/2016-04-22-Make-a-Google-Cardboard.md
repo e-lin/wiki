@@ -21,7 +21,7 @@ Thanks to @nageek's help, the cardboard box has changed to a beautiful shape!
 We use
 
 
-Reference:
+Reference
 ---
 [かきのブロマガGoogle Cardboardに合うレンズを100円ショップ等から探す][R1]<br />
 [400円でヘッドマウントディスプレイを作ってみる(Cardboard)][R2]<br />

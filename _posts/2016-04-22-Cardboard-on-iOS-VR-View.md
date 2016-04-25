@@ -6,14 +6,14 @@ categories: jekyll update
 type: Cardboard
 excerpt_separator: <!--more-->
 ---
-- test
+- ongoing
 <!--more-->
 
-Overview:
+Overview
 ---
 
 
-Reference:
+Reference
 ---
 [Introducing VR view: embed immersive content into your apps and websites][R1]
 
