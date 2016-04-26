@@ -186,11 +186,13 @@ Reference:
 [Tensorflow Basic Usage][R1]<br />
 [Variables: Creation, Initialization, Saving, and Loading][R2]<br />
 [Tensorflow Mechanics 101][R3]<br />
-[TensorBoard: Visualizing Learning][R4]
+[TensorBoard: Visualizing Learning][R4]<br />
+[TensorFlow Tutorial given by Dr. Chung-Cheng Chiu at Google Brain on Dec. 29, 2015 ][R5]
 
 [R1]: https://www.tensorflow.org/versions/r0.7/get_started/basic_usage.html
 [R2]: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/how_tos/variables/index.md
 [R3]: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/tutorials/mnist/tf/index.md
 [R4]: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/how_tos/summaries_and_tensorboard/index.md
+[R5]: http://www.slideshare.net/tw_dsconf/tensorflow-tutorial
 [N1]: http://stackoverflow.com/questions/33610685/in-tensorflow-what-is-the-difference-between-session-run-and-tensor-eval
 [N2]: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/platform/default/_app.py
