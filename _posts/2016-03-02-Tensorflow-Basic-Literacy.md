@@ -201,7 +201,7 @@ Reference:
 [Variables: Creation, Initialization, Saving, and Loading][R2]<br />
 [Tensorflow Mechanics 101][R3]<br />
 [TensorBoard: Visualizing Learning][R4]<br />
-[TensorFlow Tutorial given by Dr. Chung-Cheng Chiu at Google Brain on Dec. 29, 2015 ][R5]
+[TensorFlow Tutorial given by Dr. Chung-Cheng Chiu at Google Brain on Dec. 29, 2015 ][R5]<br />
 [How to print the value of a Tensor object in TensorFlow?][R6]
 
 [R1]: https://www.tensorflow.org/versions/r0.7/get_started/basic_usage.html

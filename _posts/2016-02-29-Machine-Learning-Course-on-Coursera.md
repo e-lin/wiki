@@ -33,7 +33,7 @@ For the two months that I have scarified with my spare time doing this :-)
 
 Reference
 ---
-[Stanford University’s Machine Learning course on Coursera][R1]
+[Stanford University’s Machine Learning course on Coursera][R1]<br />
 [Stanford Unsupervised Feature Learning and Deep Learning Tutorial][R2]
 
 [R1]: https://www.coursera.org/learn/machine-learning/
