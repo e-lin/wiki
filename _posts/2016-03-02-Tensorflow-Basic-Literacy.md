@@ -18,6 +18,20 @@ Feeling like totally a graphical aspect within Tensorflow after reading its basi
 
 [Basic Usage][R1]
 ---
+
+### [Print the value of a Tensor object:][R6]
+The easiest way to evaluate the actual value of a Tensor object is to pass it to the `Session.run()` method, or call `Tensor.eval()` when you have a default session (i.e. in a `with tf.Session()`: block, or see below).
+
+``` python
+sess = tf.InteractiveSession()
+
+W = tf.Variable(numpy.random.randn(), name="weight")
+W.initializer.run()
+
+# print tensor
+W.eval() # or sess.run(W)
+```
+
 When running tensorflow with the interactive python, we can execute `Tensor.eval()` or `Operation.run(op)` to avoid keeping a variable holding a session
 
 ``` python
@@ -188,11 +202,13 @@ Reference:
 [Tensorflow Mechanics 101][R3]<br />
 [TensorBoard: Visualizing Learning][R4]<br />
 [TensorFlow Tutorial given by Dr. Chung-Cheng Chiu at Google Brain on Dec. 29, 2015 ][R5]
+[How to print the value of a Tensor object in TensorFlow?][R6]
 
 [R1]: https://www.tensorflow.org/versions/r0.7/get_started/basic_usage.html
 [R2]: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/how_tos/variables/index.md
 [R3]: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/tutorials/mnist/tf/index.md
 [R4]: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/how_tos/summaries_and_tensorboard/index.md
 [R5]: http://www.slideshare.net/tw_dsconf/tensorflow-tutorial
+[R6]: http://stackoverflow.com/questions/33633370/how-to-print-the-value-of-a-tensor-object-in-tensorflow
 [N1]: http://stackoverflow.com/questions/33610685/in-tensorflow-what-is-the-difference-between-session-run-and-tensor-eval
 [N2]: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/platform/default/_app.py
