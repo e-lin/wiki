@@ -83,8 +83,13 @@ Predict.... (Predict a house with 1650 square feet and 3 bedrooms.)
 House price(Y) = [[ 293081.46875]]
 ```
 
-#### Normal Equations:
+#### Normal Equations: [(Code)][C3]
 We can also use the closed-form solution for linear regression.
+
+``` python
+# theta = (X'*X)^-1 * X' * y
+theta = tf.matmul(tf.matmul(tf.matrix_inverse(tf.matmul(tf.transpose(X), X)), tf.transpose(X)), Y)
+```
 
 *Gradient descent:*
 
@@ -98,7 +103,7 @@ We can also use the closed-form solution for linear regression.
 - Feature scaling is not nescessary
 - Need to compute (X' * X)^-1 which has O(n^3). Switch to gradient descent for large n.
 
-#### Multivariate multiple linear regression:
+#### Multivariate multiple linear regression: [(Code)][C4]
 
 
 ### Gain an insight into data
@@ -180,21 +185,21 @@ Reference
 ["Chapter 10, Multivariate regression – Section 10.1, Introduction", Methods of Multivariate Analysis][R2]<br />
 [What is multinominal logistic regression model?][R4]<br />
 [Use attribute and target matrices for TensorFlow Linear Regression Python][R5]<br />
-[Multivariate linear regression in Python][R6]<br />
-[How to implement multivariate linear stochastic gradient descent algorithm in tensorflow?][R7]<br />
-[Multiple Linear Regression Model by using Tensorflow][R8]<br />
-[Treating quantity as constant in TensorFlow][R9]
+[Multiple Linear Regression Model by using Tensorflow][R6]<br />
+[Treating quantity as constant in TensorFlow][R7]<br />
+[How to implement multivariate linear stochastic gradient descent algorithm in tensorflow?][R8]<br />
+
 
 [R1]: http://research.microsoft.com/apps/pubs/?id=246398
 [R2]: https://books.google.co.jp/books?id=0g-PAuKub3QC&pg=PA19&redir_esc=y#v=onepage&q&f=false
 [R3]: https://www.tensorflow.org/versions/r0.8/tutorials/mnist/beginners/index.html#softmax-regressions
 [R4]: https://en.wikipedia.org/wiki/Logistic_regression
 [R5]: http://stackoverflow.com/questions/33698510/use-attribute-and-target-matrices-for-tensorflow-linear-regression-python
-[R6]: http://stackoverflow.com/questions/11479064/multivariate-linear-regression-in-python?rq=1
-[R7]: http://stackoverflow.com/questions/36031324/how-to-implement-multivariate-linear-stochastic-gradient-descent-algorithm-in-te?rq=1
-[R8]: http://stackoverflow.com/questions/37159070/multiple-linear-regression-model-by-using-tensorflow
-[R9]: http://stackoverflow.com/questions/33858785/treating-quantity-as-constant-in-tensorflow
+[R6]: http://stackoverflow.com/questions/37159070/multiple-linear-regression-model-by-using-tensorflow
+[R7]: http://stackoverflow.com/questions/33858785/treating-quantity-as-constant-in-tensorflow
+[R8]: http://stackoverflow.com/questions/36031324/how-to-implement-multivariate-linear-stochastic-gradient-descent-algorithm-in-te?rq=1
 [C1]: https://github.com/e-lin/tensorflow_practices/blob/master/examples/linear_regression.py
 [C2]: https://github.com/e-lin/tensorflow_practices/blob/master/examples/multiple_linear_regression.py
+[C3]: https://github.com/e-lin/tensorflow_practices/blob/master/examples/multiple_linear_regression_closedform.py
 [data_set]: http://openclassroom.stanford.edu/MainFolder/DocumentPage.php?course=MachineLearning&doc=exercises/ex3/ex3.html
 [AQI]: http://kjs.mep.gov.cn/hjbhbz/bzwb/dqhjbh/jcgfffbz/201203/W020120410332725219541.pdf
