@@ -34,7 +34,9 @@ For the two months that I have scarified with my spare time doing this :-)
 Reference
 ---
 [Stanford University’s Machine Learning course on Coursera][R1]<br />
-[Stanford Unsupervised Feature Learning and Deep Learning Tutorial][R2]
+[Stanford Unsupervised Feature Learning and Deep Learning Tutorial][R2]<br />
+[7 Steps to Mastering Machine Learning With Python][R3]
 
 [R1]: https://www.coursera.org/learn/machine-learning/
 [R2]: http://ufldl.stanford.edu/tutorial/
+[R3]: http://www.kdnuggets.com/2015/11/seven-steps-machine-learning-python.html/2

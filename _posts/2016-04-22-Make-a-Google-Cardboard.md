@@ -3,7 +3,7 @@ layout: post
 title:  "Make a Google Cardboard"
 date:   2016-04-22 00:00:00 +0900
 categories: jekyll update
-type: Cardboard
+type: Fun
 excerpt_separator: <!--more-->
 ---
 Prepare:
