@@ -11,3 +11,4 @@ excerpt_separator: <!--more-->
 - free memory: `free -m`
 - restart your shell: `$ exec -l $SHELL`
 - sudo previous command: `$ sudo !!`
+- copy directories: `cp -R <sourcedir> <destdir>`
