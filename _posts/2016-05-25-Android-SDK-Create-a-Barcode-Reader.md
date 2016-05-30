@@ -6,7 +6,7 @@ categories: jekyll update
 type: Android
 excerpt_separator: <!--more-->
 ---
-We use [Zxing Library][R2] to implement this.
+We use [Zxing Library][zxing] to implement this. Furthermore, there is also another way to implement this - by using Google's Mobile Vision APIs - [Barcode Detection in Google Play services][google_api].
 <!--more-->
 
 Steps
@@ -141,11 +141,15 @@ Results
 ![Imgur2](http://i.imgur.com/Wi1AVZJ.png)
 ![Imgur3](http://i.imgur.com/zjSoNSH.png)
 
+Use Google's Barcode Scanner API
+---
+
 Reference
 ---
 [Android SDK: Create a Barcode Reader][R1]<br />
-[如何在Android Studio中加入library??][R3]
+[如何在Android Studio中加入library??][R2]
 
+[zxing]: https://github.com/zxing/zxing
+[google_api]: http://android-developers.blogspot.jp/2015/08/barcode-detection-in-google-play.html
 [R1]: http://code.tutsplus.com/tutorials/android-sdk-create-a-barcode-reader--mobile-17162
-[R2]: https://github.com/zxing/zxing
-[R3]: http://lazycatnote.blogspot.jp/2015/03/androidqr-code.html
+[R2]: http://lazycatnote.blogspot.jp/2015/03/androidqr-code.html
