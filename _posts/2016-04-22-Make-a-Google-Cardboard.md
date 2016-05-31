@@ -19,6 +19,10 @@ Thanks to @nageek's help, the cardboard box has changed to a beautiful shape!
 ![Cardboard2](http://i.imgur.com/DVamqwR.jpg)
 ![Cardboard3](http://i.imgur.com/OyQBeMY.jpg)
 
+This is what it ended up looking like:
+
+![Cardboard4](http://i.imgur.com/AGSjfnX.jpg)
+
 
 
 Reference

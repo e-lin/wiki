@@ -110,9 +110,9 @@ os.system('omxplayer {}hello.mp3'.format(path))
 
 Instead of using mpg123 by omxplayer.
 
-I can hear "Hello" now, but Alexa seems not recording.
+I can hear "Hello" now. And here is what it ended up looking like:
 
-(ongoing...)
+[![Demo](http://img.youtube.com/vi/LhEvIucZAc0/0.jpg)](http://www.youtube.com/watch?v=LhEvIucZAc0 "Raspberry Pi on Alexa ")
 
 
 Test Your USB Microphone with Recording/Playing
