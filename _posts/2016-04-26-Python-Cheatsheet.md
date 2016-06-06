@@ -30,5 +30,5 @@ Read input from STDIN. Print output to STDOUT
 [Python 标准输出 sys.stdout 重定向][R2]
 
 
-[R1]: https://developers.google.com/edu/python/<br />
+[R1]: https://developers.google.com/edu/python/
 [R2]: http://www.cnblogs.com/turtle-fly/p/3280519.html
