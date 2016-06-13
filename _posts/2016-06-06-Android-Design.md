@@ -43,5 +43,5 @@ Reference
 [R1]: http://www.justinmind.com/
 [R2]: https://github.com/codepath/android_guides/wiki/Mobile-Screen-Archetypes
 [R3]: http://www.android-app-patterns.com/
-[R4]: https://www.google.com/design/spec/resources/layout-templates.html#layout-templates-tablet
+[R4]: https://www.google.com/design/spec/resources/layout-templates.html
 [R5]: https://www.google.com/design/spec/resources/color-palettes.html

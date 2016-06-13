@@ -61,7 +61,7 @@ Long tsLong = System.currentTimeMillis()/1000;
 String ts = tsLong.toString();
 ```
 
-I do not use `TimingLogger` as it is more suitable for code execution time. Besides, developers have to set a system property like:
+I do not use `TimingLogger` as it is more suitable for calculating code execution time. We are not measuring code execution time here. Besides, developers have to set a system property like:
 
 ```
 $ adb shell
