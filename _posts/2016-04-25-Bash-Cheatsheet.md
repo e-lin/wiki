@@ -12,3 +12,5 @@ excerpt_separator: <!--more-->
 - restart your shell: `$ exec -l $SHELL`
 - sudo previous command: `$ sudo !!`
 - copy directories: `cp -R <sourcedir> <destdir>`
+- rename folder: `mv /home/user/oldname /home/user/newname`
+- see java folder path: `whereis java`
