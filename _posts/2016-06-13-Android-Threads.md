@@ -81,7 +81,7 @@ private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 
 See Also: [Communicating with the UI Thread][R2].
 
-#### Stop a running thread when Activity is onDestroy
+#### Stop the running thread in the onStop() of your activity
 
 If you are using the Thread in the Activity for some purpose, it is good practice to stop it when your activity destroy.
 
@@ -96,22 +96,73 @@ class DBThread extends Thread {
 }
 
 @Override
-public void onDestroy() {
-    if (yourThread!=null) {
-        yourThread.interrupt(); // request to terminate thread in regular way
-        yourThread.join(500); // wait until thread ends or timeout after 0.5 second
-        if (yourThread.isAlive()) {
+public void onStop() {
+    if (null != myThread) {
+        myThread.interrupt(); // request to terminate thread in regular way
+
+        myThread.join(500); // wait until thread ends or timeout after 0.5 second
+
+        if (myThread.isAlive()) {
             // this is needed only when something is wrong with thread, for example hangs in ininitive loop or waits to long for lock to be released by other thread.
             Log.e(TAG, "Serious problem with thread!");
-            yourThread.stop();
+            myThread.stop();
         }
     }
-    super.onDrestroy();
+    super.onStop();
 }
 ```
 Note that `Thread.destroy()` is deprecated and will not work. `Thread.stop()` is also deprecated since it can brake state of virtual machine (not thread-safey), so it should be use only as last resort and this is what my code do and that is why my code logs an error.
 
 See Also: [Activitys, Threads, & Memory Leaks][R5].
+
+#### Cancel the AsyncTask in the onStop() of your activity
+
+When starting:
+
+``` java
+Task myTask = new Task();
+myTask.execute();
+```
+then in onPause()/onStop():
+
+``` java
+if (null != myTask) {
+    myTask.cancel(true);
+}
+```
+then inside your doInBackground() if you are doing something periodically (like downloading) have something like this:
+
+``` java
+if (isCanceled()) {
+    return;
+}
+```
+See Also: [AsyncTask won't stop even when the activity has destroyed][R7]
+
+#### AsyncTask Status
+using `getStatus()` to get current state:
+
+- PENDING: AsyncTask has been instantiated but `execute()` hansn’t been called on the instance.
+- RUNNING: `execute()` has been called.
+- FINISHED: The execution has been done as well as `onPostExecute()` or `onCancelled()` has been called.
+
+#### Should you use a AsyncTask or a thread?
+For long-running or CPU-intensive tasks, there are basically two ways to do this: Java threads, and Android's native AsyncTask.
+
+Neither one is necessarily better than the other, but knowing when to use each call is essential to leveraging the system's performance to your benefit.
+
+*Use AsyncTask for:*
+
+- Simple network operations which do not require downloading a lot of data
+- Disk-bound tasks that might take more than a few milliseconds
+
+*Use Java threads for:*
+
+- Network operations which involve moderate to large amounts of data (either uploading or downloading)
+- High-CPU tasks which need to be run in the background
+- Any task where you want to control the CPU usage relative to the GUI thread
+
+See Also: [Android background processing with Handlers, AsyncTask and Loaders - Tutorial][R10]
 
 
 Threads vs Services
@@ -135,11 +186,11 @@ Remember that if you do use a service, it still runs in your application's main 
 Reference
 ---
 [Android Processes and Threads][R1]<br />
-[Communicating with the UI Thread][R2]<br />
 [Thread still runnng after destroying the the Activity][R3]<br />
 [Service vs Thread in Android][R4]<br />
-[Activitys, Threads, & Memory Leaks][R5]<br />
-[Android Services][R6]
+[Android Services][R6]<br />
+[Understanding Android AsyncTask (Executing Background Tasks)][R8]<br />
+[Asynctask vs Thread in android][R9]
 
 
 [R1]: https://developer.android.com/guide/components/processes-and-threads.html
@@ -148,3 +199,8 @@ Reference
 [R4]: http://stackoverflow.com/questions/22933762/service-vs-thread-in-android
 [R5]: http://www.androiddesignpatterns.com/2013/04/activitys-threads-memory-leaks.html
 [R6]: https://developer.android.com/guide/components/services.html
+[R7]: http://stackoverflow.com/questions/2531336/asynctask-wont-stop-even-when-the-activity-has-destroyed
+[R8]: http://codetheory.in/android-asynctask/
+[R9]: http://stackoverflow.com/questions/18480206/asynctask-vs-thread-in-android
+[R10]: http://www.vogella.com/tutorials/AndroidBackgroundProcessing/article.html
+

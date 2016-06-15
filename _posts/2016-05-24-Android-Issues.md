@@ -102,6 +102,7 @@ dependencies {
 }
 ```
 
+
 [java.lang.NullPointerException: Attempt to get length of null array][R10]
 ---
 
@@ -113,12 +114,24 @@ public void onError(BaseRequest req){
     Log.v("Worker", new String(req.getResponseData())); // ---> here got a null pointer
 }
 ```
-
 Solution: The problem is because getResponseData() return null.
 
 
 [I/Choreographer: Skipped 48 frames!  The application may be doing too much work on its main thread.][R11]
 ---
+Solution: ongoing...
+
+
+[java.lang.IllegalStateException: Cannot execute task: the task has already been executed (a task can be executed only once)][]
+---
+Solution: When using AsyncTask, you cannot call `execute();` twice. But if you new an AsyncTask everytime, you should consider how to claim your AsyncTask. Afterall, you have to stop all the AsyncTasks in the onStop() of activity.
+
+
+[Fatal signal 11 (SIGSEGV), code 1, fault addr 0x0 in tid 4438 (Timer-20)][R13]
+---
+Solution: This is memory related error. You may have a memory leak or out of memory in your device. Check if your stop thread before it goes unclaimed.
+
+
 
 
 [R1]: http://stackoverflow.com/questions/34814368/gradle-version-2-10-is-required-error
@@ -131,4 +144,6 @@ Solution: The problem is because getResponseData() return null.
 [R8]: https://developer.android.com/topic/libraries/support-library/setup.html#add-library
 [R9]: http://stackoverflow.com/questions/32075498/error-retrieving-parent-for-item-no-resource-found-that-matches-the-given-name
 [R11]: http://stackoverflow.com/questions/14678593/the-application-may-be-doing-too-much-work-on-its-main-thread
+[R13]: http://stackoverflow.com/questions/17840521/android-fatal-signal-11-sigsegv-at-0x636f7d89-code-1-how-can-it-be-tracked
+
 
