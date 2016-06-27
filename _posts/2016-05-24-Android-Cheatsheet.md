@@ -20,7 +20,7 @@ Android Studio
 - `ctr + opt + r` to run program.
 
 
-Get Device Information
+Get device information
 ---
 
 ``` java
@@ -53,7 +53,7 @@ V/Device Info: Debug-infos
 - [Build - Android Developers][R2]
 
 
-Get Current timestamp
+Get current timestamp
 ---
 
 ``` java
@@ -144,6 +144,20 @@ public void clickURL(View view) {
 - [Android TextView with Clickable Links: how to capture clicks?][R9]
 
 
+Get device screen dpi
+---
+
+``` java
+DisplayMetrics metrics = getResources().getDisplayMetrics();
+int densityDpi = (int)(metrics.density * 160f);
+```
+`metrics.densityDpi` property will be one of the constants (120, 160, 213, 240, 320, 480 or 640 dpi).
+
+
+#### Reference
+
+- [getting the screen density programmatically in android?][R10]
+
 
 
 [R1]: http://stackoverflow.com/questions/3213205/how-to-detect-system-information-like-os-or-device-type
@@ -155,6 +169,7 @@ public void clickURL(View view) {
 [R7]: http://stackoverflow.com/questions/17630697/setonclicklistener-on-textview
 [R8]: http://stackoverflow.com/questions/3250034/android-webview-intercept-clicks
 [R9]: http://stackoverflow.com/questions/12418279/android-textview-with-clickable-links-how-to-capture-clicks
+[R10]: http://stackoverflow.com/questions/3166501/getting-the-screen-density-programmatically-in-android
 
 
 
