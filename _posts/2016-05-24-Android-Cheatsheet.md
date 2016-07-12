@@ -18,6 +18,24 @@ Android Studio
 - `cmd + fn + F9` to build program.
 - `ctr + r` to run application.
 - `ctr + opt + r` to run program.
+- `cmd + n` to add a new method.
+- `cmd + b` to find declaration and go to.
+- `cmd + e` to open recent edited files.
+- `opt + fn + F7` to find usage.
+
+Gradle: Add shared project
+---
+In app's `build.gradle`, add:
+
+```
+dependencies {
+    compile project(':zxing-android-embedded')
+}
+```
+
+#### Reference
+
+- [24.7. Project lib dependencies][R15]
 
 
 Get device information
@@ -159,6 +177,52 @@ int densityDpi = (int)(metrics.density * 160f);
 - [getting the screen density programmatically in android?][R10]
 
 
+Change locale at runtime
+---
+
+``` java
+    private Locale myLocale;
+    public void set_locale(String lang) {
+          myLocale = new Locale(lang);
+          Resources res = getResources();
+          Configuration conf = res.getConfiguration();
+          conf.locale = myLocale;
+          res.updateConfiguration(conf, res.getDisplayMetrics());
+
+          recreate();
+//          Intent intent = new Intent(this, DisplayMessageActivity.class);
+//          startActivity(intent);
+```
+
+For Traiditional Chinese or Simplified Chinese, you should rather write:
+
+``` java
+new Locale("zh", "TW")
+```
+
+#### Reference
+
+- [Android localization at runtime][R11]
+- [Change the locale at runtime?][R12]
+- [Chinese not working][R13]
+
+
+Content behind CoordinatorLayout AppBarLayout
+---
+
+If you created a NavigationDrawer with Android Studio's default template, you will find once you add contents in `content_xxx.xml` file, the contect end up being behind the AppBar(ToolBar).
+
+To solve this, add `layout_behavior` to your ViewGroup(RelativeLayout, ScrollView, FrameLayout, etc.) like:
+
+``` xml
+xmlns:app="http://schemas.android.com/apk/res-auto"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+```
+
+#### Reference
+
+- [Content behind CoordinatorLayout AppBarLayout][R14]
+
 
 [R1]: http://stackoverflow.com/questions/3213205/how-to-detect-system-information-like-os-or-device-type
 [R2]: https://developer.android.com/reference/android/os/Build.html
@@ -170,7 +234,9 @@ int densityDpi = (int)(metrics.density * 160f);
 [R8]: http://stackoverflow.com/questions/3250034/android-webview-intercept-clicks
 [R9]: http://stackoverflow.com/questions/12418279/android-textview-with-clickable-links-how-to-capture-clicks
 [R10]: http://stackoverflow.com/questions/3166501/getting-the-screen-density-programmatically-in-android
-
-
-
+[R11]: http://programmerguru.com/android-tutorial/android-localization-at-runtime/
+[R12]: http://stackoverflow.com/questions/13181847/change-the-locale-at-runtime
+[R13]: https://github.com/ocpsoft/prettytime/issues/78
+[R14]: http://stackoverflow.com/questions/32855889/content-behind-coordinatorlayout-appbarlayout
+[R15]: https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:multiproject_build_and_test
 
