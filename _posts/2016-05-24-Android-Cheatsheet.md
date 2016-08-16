@@ -22,6 +22,9 @@ Android Studio
 - `cmd + b` to find declaration and go to.
 - `cmd + e` to open recent edited files.
 - `opt + fn + F7` to find usage.
+- `cmd + opt + <-` to back to the last position where the cursor pointed.
+- `cmd + d` to copy and paste a line.
+- `cmd + sft + f` to find in path.
 
 Gradle: Add shared project
 ---
@@ -71,7 +74,7 @@ V/Device Info: Debug-infos
 - [Build - Android Developers][R2]
 
 
-Get current timestamp
+Get UTC timestamp
 ---
 
 ``` java
@@ -90,6 +93,14 @@ usage: setprop <key> <value>
 ```
 to make `Log.isLoggable` become true. Otherwise the `addSplit` and `dumpToLog` call will do nothing.
 
+Use getTime() of Date object,
+
+``` java
+Date date = new Date();
+long timestamp = date.getTime();
+```
+you will also get time in millisecond like `System.currentTimeMillis()` in 12 digits.
+To get 10 digits of timestamp, try `date.getTime()/1000`.
 
 #### Reference
 
@@ -128,12 +139,12 @@ Make a clickable URL in Textview and return true if the URL was clicked
 Add a `TextView` in layout.xml
 
 ``` xml
-    <TextView
-        android:id="@+id/my_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autoLink="web"
-        android:onClick="clickURL"/>
+<TextView
+    android:id="@+id/my_link"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:autoLink="web"
+    android:onClick="clickURL"/>
 ```
 
 `android:autoLink="web"` will find an URL and create a link even if android:linksClickable is not set, links are by default clickable. You don't have to keep the URL alone, even in the middle of a text it will be detected and clickable.
@@ -181,17 +192,17 @@ Change locale at runtime
 ---
 
 ``` java
-    private Locale myLocale;
-    public void set_locale(String lang) {
-          myLocale = new Locale(lang);
-          Resources res = getResources();
-          Configuration conf = res.getConfiguration();
-          conf.locale = myLocale;
-          res.updateConfiguration(conf, res.getDisplayMetrics());
+private Locale myLocale;
+public void set_locale(String lang) {
+      myLocale = new Locale(lang);
+      Resources res = getResources();
+      Configuration conf = res.getConfiguration();
+      conf.locale = myLocale;
+      res.updateConfiguration(conf, res.getDisplayMetrics());
 
-          recreate();
-//          Intent intent = new Intent(this, DisplayMessageActivity.class);
-//          startActivity(intent);
+      recreate();
+//      Intent intent = new Intent(this, DisplayMessageActivity.class);
+//      startActivity(intent);
 ```
 
 For Traiditional Chinese or Simplified Chinese, you should rather write:
@@ -224,6 +235,104 @@ app:layout_behavior="@string/appbar_scrolling_view_behavior"
 - [Content behind CoordinatorLayout AppBarLayout][R14]
 
 
+Alert Dialog
+---
+An example of making a dialog:
+
+``` java
+public void showAlertDialog() {
+    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    builder.setMessage(R.string.dialog_message).setTitle(R.string.dialog_tile);
+    builder.setPositiveButton("OK", null);
+    AlertDialog dialog = builder.create();
+    dialog.show();
+}
+```
+Result:
+
+![Imgur](http://i.imgur.com/qrLFrPT.png)
+
+#### Reference
+
+- [Android - Alert Dialog Tutorial][R16]
+- [Dialogs - Android Developers][R17]
+
+Dialog Fragment
+---
+Dialog fragment is a fragment which can show fragment in dialog box.
+
+To implement a dialog fragment:
+
+#1. Create a new class like:
+
+``` java
+public static class MyAlertDialogFragment extends DialogFragment {
+
+    public static MyAlertDialogFragment newInstance(int title) {
+        MyAlertDialogFragment frag = new MyAlertDialogFragment();
+        Bundle args = new Bundle();
+        args.putInt("title", title);
+        frag.setArguments(args);
+        return frag;
+    }
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        int title = getArguments().getInt("title");
+
+        return new AlertDialog.Builder(getActivity())
+                .setIcon(R.drawable.alert_dialog_icon)
+                .setTitle(title)
+                .setPositiveButton(R.string.alert_dialog_ok,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            ((FragmentAlertDialog)getActivity()).doPositiveClick();
+                        }
+                    }
+                )
+                .setNegativeButton(R.string.alert_dialog_cancel,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            ((FragmentAlertDialog)getActivity()).doNegativeClick();
+                        }
+                    }
+                )
+                .create();
+    }
+}
+```
+
+#2. The activity creating this fragment may have the following methods to show the dialog and receive results from it:
+
+``` java
+void showDialog() {
+    DialogFragment newFragment = MyAlertDialogFragment.newInstance(
+            R.string.alert_dialog_two_buttons_title);
+    newFragment.show(getFragmentManager(), "dialog");
+}
+
+public void doPositiveClick() {
+    // Do stuff here.
+    Log.i("FragmentAlertDialog", "Positive click!");
+}
+
+public void doNegativeClick() {
+    // Do stuff here.
+    Log.i("FragmentAlertDialog", "Negative click!");
+}
+```
+
+More flexible way to implement:
+
+- [DialogFragment 実装パターン][R19]
+- [Using DialogFragment][R20]
+
+#### Reference
+
+- [DialogFragment][R18]
+
+
+
 [R1]: http://stackoverflow.com/questions/3213205/how-to-detect-system-information-like-os-or-device-type
 [R2]: https://developer.android.com/reference/android/os/Build.html
 [R3]: http://stackoverflow.com/questions/8077530/android-get-current-timestamp
@@ -239,4 +348,10 @@ app:layout_behavior="@string/appbar_scrolling_view_behavior"
 [R13]: https://github.com/ocpsoft/prettytime/issues/78
 [R14]: http://stackoverflow.com/questions/32855889/content-behind-coordinatorlayout-appbarlayout
 [R15]: https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:multiproject_build_and_test
+[R16]: http://www.tutorialspoint.com/android/android_alert_dialoges.htm
+[R17]: https://developer.android.com/guide/topics/ui/dialogs.html
+[R18]: https://developer.android.com/reference/android/app/DialogFragment.html
+[R19]: http://qiita.com/kojionilk/items/9584c012679f61569995
+[R20]: https://github.com/codepath/android_guides/wiki/Using-DialogFragment
+
 
