@@ -331,6 +331,18 @@ More flexible way to implement:
 
 - [DialogFragment][R18]
 
+Get Carrier Name
+---
+
+```
+TelephonyManager manager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+String carrierName = manager.getNetworkOperatorName();
+```
+
+#### Reference
+
+- [How to find out carrier's name in Android][R21]
+
 
 
 [R1]: http://stackoverflow.com/questions/3213205/how-to-detect-system-information-like-os-or-device-type
@@ -353,5 +365,5 @@ More flexible way to implement:
 [R18]: https://developer.android.com/reference/android/app/DialogFragment.html
 [R19]: http://qiita.com/kojionilk/items/9584c012679f61569995
 [R20]: https://github.com/codepath/android_guides/wiki/Using-DialogFragment
-
+[R21]: http://stackoverflow.com/questions/3838602/how-to-find-out-carriers-name-in-android
 
