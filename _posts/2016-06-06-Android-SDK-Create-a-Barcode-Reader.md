@@ -8,6 +8,10 @@ excerpt_separator: <!--more-->
 ---
 <!--more-->
 
+Today's special
+---
+![Imgur](http://i.imgur.com/mWEpKBG.jpg)
+
 Overview
 ---
 We first used [Zxing Library][zxing] to implement this. Furthermore, there is also another way to implement this - by using Google's Mobile Vision APIs - [Barcode Detection in Google Play services][google_api]. We ended up using [ZXing Android Embedded][zxing_embed] since it not only suppots camera in vertical mode but also is more lighter than Zxing.
