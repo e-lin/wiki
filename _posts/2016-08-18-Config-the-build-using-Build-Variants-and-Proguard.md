@@ -282,6 +282,11 @@ Speeding up Gradle build time
 org.gradle.daemon=true
 ```
 
+Today's Breakfest
+---
+![Imgur](http://i.imgur.com/35ZYkjo.jpg)
+
+
 Reference
 ---
 [Configure Build Variants][R1]<br />
