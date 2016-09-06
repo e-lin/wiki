@@ -19,12 +19,22 @@ Android Studio
 - `ctr + r` to run application.
 - `ctr + opt + r` to run program.
 - `cmd + n` to add a new method.
-- `cmd + b` to find declaration and go to.
+- `cmd + b` to find declaration/implemetation and go to.
 - `cmd + e` to open recent edited files.
 - `opt + fn + F7` to find usage.
 - `cmd + opt + <-` to back to the last position where the cursor pointed.
 - `cmd + d` to copy and paste a line.
 - `cmd + sft + f` to find in path.
+
+
+ADB logcat
+---
+ADB command to see the debug log with `MyTag`.
+
+```
+adb logcat -v time | grep D/MyTag
+```
+
 
 Gradle: Add shared project
 ---
