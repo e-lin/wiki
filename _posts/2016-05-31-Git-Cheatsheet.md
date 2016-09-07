@@ -104,6 +104,7 @@ $ git branch -d temp
 
 [Merging vs. Rebasing][R8]
 ---
+(ongoing)
 
 [Remove a folder from git tracking][R9]
 ---
@@ -122,6 +123,97 @@ $ git rm -r --cached path_to_your_folder/
 
 The folder will be considered "deleted" from Git's point of view (i.e. they are in past history, but not in the latest commit, and people pulling from this repo will get the files removed from their trees), but stay on your working directory because you've used `--cached`.
 
+[Create a new branch with git and manage branches][R10]
+---
+In your github fork, you need to keep your master branch clean, by clean I mean without any changes, like that you can create at any time a branch from your master. Each time, that you want to commit a bug or a feature, you need to create a branch for it, which will be a copy of your master branch.
+
+When you do a pull request on a branch, you can continue to work on another branch and make another pull request on this other branch.
+
+Before creating a new branch, pull the changes from upstream. Your master needs to be up to date.
+
+Create the branch on your local machine and switch in this branch :
+
+```
+$ git checkout -b [name_of_your_new_branch]
+```
+
+Push the branch on github :
+
+```
+$ git push origin [name_of_your_new_branch]
+```
+
+When you want to commit something in your branch, be sure to be in your branch.
+
+You can see all branches created by using :
+
+```
+$ git branch -a
+```
+
+Add a new remote for your branch :
+
+```
+$ git remote add [name_of_your_remote]
+```
+
+Push changes from your commit into your branch :
+
+```
+$ git push [name_of_your_new_remote] [name_of_your_branch]
+```
+
+Add a new remote for your branch :
+
+```
+$ git remote add [name_of_your_remote]
+```
+
+Push changes from your commit into your branch :
+
+```
+$ git push [name_of_your_new_remote] [name_of_your_branch]
+```
+
+Update your branch when the original branch from official repository has been updated :
+
+```
+$ git fetch [name_of_your_remote]
+```
+
+Then you need to apply to merge changes, if your branch is derivated from develop you need to do :
+
+```
+$ git merge [name_of_your_remote]/develop
+```
+
+Delete a branch on your local filesystem :
+
+```
+$ git branch -d [name_of_your_new_branch]
+```
+
+To force the deletion of local branch on your filesystem :
+
+```
+$ git branch -D [name_of_your_new_branch]
+```
+
+Delete the branch on github :
+
+```
+$ git push origin :[name_of_your_new_branch]
+```
+
+The only difference is the : to say delete, you can do it too by using github interface to remove branch : [https://help.github.com/articles/deleting-unused-branches][R10].
+
+
+Read More
+---
+
+- [How to handle conflicts with git][R11]
+- [Useful git commands][R12]
+
 
 [R1]: http://stackoverflow.com/questions/927358/how-do-you-undo-the-last-commit
 [R2]: https://help.github.com/articles/syncing-a-fork/
@@ -132,5 +224,7 @@ The folder will be considered "deleted" from Git's point of view (i.e. they are 
 [R7]: http://stackoverflow.com/questions/7744049/git-how-to-rebase-to-a-specific-commit
 [R8]: https://www.atlassian.com/git/tutorials/merging-vs-rebasing
 [R9]: http://stackoverflow.com/questions/24290358/remove-a-folder-from-git-tracking
-
+[R10]: https://help.github.com/articles/deleting-unused-branches
+[R11]: https://github.com/Kunena/Kunena-Forum/wiki/How-to-handle-conflicts-with-git
+[R12]: https://github.com/Kunena/Kunena-Forum/wiki/Useful-git-commands
 
