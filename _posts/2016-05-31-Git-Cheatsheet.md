@@ -163,18 +163,6 @@ Push changes from your commit into your branch :
 $ git push [name_of_your_new_remote] [name_of_your_branch]
 ```
 
-Add a new remote for your branch :
-
-```
-$ git remote add [name_of_your_remote]
-```
-
-Push changes from your commit into your branch :
-
-```
-$ git push [name_of_your_new_remote] [name_of_your_branch]
-```
-
 Update your branch when the original branch from official repository has been updated :
 
 ```
@@ -208,6 +196,20 @@ $ git push origin :[name_of_your_new_branch]
 The only difference is the : to say delete, you can do it too by using github interface to remove branch : [https://help.github.com/articles/deleting-unused-branches][R10].
 
 
+[Get changes from master into branch in Git][R13]
+---
+In my repository I have a branch called `aq` which I'm working on. I then committed new work and bugs in `master`.
+
+What is the best way to get those commits into the `aq` branch? Create another new branch out of `master` and merge it with `aq`?
+
+Solution: Check out the `aq` branch, and rebase from `master`.
+
+```
+$ git checkout aq
+$ git rebase master
+```
+
+
 Read More
 ---
 
@@ -227,4 +229,4 @@ Read More
 [R10]: https://help.github.com/articles/deleting-unused-branches
 [R11]: https://github.com/Kunena/Kunena-Forum/wiki/How-to-handle-conflicts-with-git
 [R12]: https://github.com/Kunena/Kunena-Forum/wiki/Useful-git-commands
-
+[R13]: http://stackoverflow.com/questions/5340724/get-changes-from-master-into-branch-in-git

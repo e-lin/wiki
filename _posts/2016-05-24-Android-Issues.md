@@ -132,6 +132,25 @@ Solution: When using AsyncTask, you cannot call `execute();` twice. But if you n
 Solution: This is memory related error. You may have a memory leak or out of memory in your device. Check if your stop thread before it goes unclaimed.
 
 
+[Android “Only the original thread that created a view hierarchy can touch its views.”][R14]
+---
+Solution: You have to move the portion of task that updates the ui onto the main thread. To do this, create a `Handler` in the UI thread and then use it to post or send a message from your other thread to update the UI.
+
+``` java
+Runnable runnable = new Runnable() {
+    @Override
+    public void run() {
+
+        //update ui
+        progressBar.setVisibility(View.GONE);
+        scrollView.setVisibility(View.GONE);
+    }
+};
+
+Handler handler = new Handler(Looper.getMainLooper());
+handler.post(runnable);
+```
+
 
 
 [R1]: http://stackoverflow.com/questions/34814368/gradle-version-2-10-is-required-error
@@ -145,5 +164,5 @@ Solution: This is memory related error. You may have a memory leak or out of mem
 [R9]: http://stackoverflow.com/questions/32075498/error-retrieving-parent-for-item-no-resource-found-that-matches-the-given-name
 [R11]: http://stackoverflow.com/questions/14678593/the-application-may-be-doing-too-much-work-on-its-main-thread
 [R13]: http://stackoverflow.com/questions/17840521/android-fatal-signal-11-sigsegv-at-0x636f7d89-code-1-how-can-it-be-tracked
-
+[R14]: http://stackoverflow.com/questions/5161951/android-only-the-original-thread-that-created-a-view-hierarchy-can-touch-its-vi
 

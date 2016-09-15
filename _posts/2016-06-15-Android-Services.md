@@ -22,7 +22,7 @@ A service can essentially take two forms:
 
 >A service is "bound" when an application component binds to it by calling `bindService()`. A bound service offers a client-server interface that allows components to interact with the service, send requests, get results, and even do so across processes with interprocess communication (IPC). A bound service runs only as long as another application component is bound to it. Multiple components can bind to the service at once, but when all of them unbind, the service is destroyed.
 
-You can have a service started, bounded, or worked in both ways(started + bounded). Meanwhile, any application component can use the service (even from a separate application), you can declare the service as private, in the manifest file, and block access from other applications.
+You can have a service started, bounded, `or worked in both ways(started + bounded)`. Meanwhile, any application component can use the service (even from a separate application), you can declare the service as private, in the manifest file, and block access from other applications.
 
 
 Remember this
@@ -56,8 +56,11 @@ The most important callback methods you should override are:
 
     >The system calls this method when the service is no longer used and is being destroyed. Your service should implement this to clean up any resources such as threads, registered listeners, receivers, etc. This is the last call the service receives.
 
-Lifecycles
+
+Lifecycle of a Service
 ---
+
+![Imgur](http://i.imgur.com/xsG1cdd.png)
 
 - If a component starts the service by calling `startService()` (which results in a call to `onStartCommand()`), then the service remains running until it stops itself with `stopSelf()` or another component stops it by calling `stopService()`.
 
@@ -90,6 +93,23 @@ You should create a bound service when you want to interact with the service fro
 There are multiple ways to implement a bound service and the implementation is more complicated than a started service, so the bound service discussion appears in a separate document about [Bound Services][R3].
 
 
+Sending Notifications to the User
+---
+Two ways doing this:
+
+- [Toast Notifications][R4]
+- [Status Bar Notifications][R5]
+
+
+Running a Service in the Foreground
+---
+A foreground service is a service that's considered to be something the user is actively aware of and thus not a candidate for the system to kill when low on memory. A foreground service must provide a notification for the status bar, which is placed under the "Ongoing" heading, which means that the notification cannot be dismissed unless the service is either stopped or removed from the foreground.
+
+For example, a music player that plays music from a service should be set to run in the foreground, because the user is explicitly aware of its operation. The notification in the status bar might indicate the current song and allow the user to launch an activity to interact with the music player.
+
+To request that your service run in the foreground, see more at [Running a Service in the Foreground][R6]
+
+
 Dish of the day
 ---
 ![Imgur](http://i.imgur.com/i6rCpsN.jpg)
@@ -106,4 +126,7 @@ Reference
 [R1]: https://developer.android.com/guide/components/services.html
 [R2]: http://stackoverflow.com/questions/20416610/app-to-monitor-other-apps-on-android
 [R3]: https://developer.android.com/guide/components/services.html#CreatingBoundService
+[R4]: https://developer.android.com/guide/topics/ui/notifiers/toasts.html
+[R5]: https://developer.android.com/guide/topics/ui/notifiers/notifications.html
+[R6]: https://developer.android.com/guide/components/services.html#Foreground
 
