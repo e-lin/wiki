@@ -25,6 +25,8 @@ Android Studio
 - `cmd + opt + <-` to back to the last position where the cursor pointed.
 - `cmd + d` to copy and paste a line.
 - `cmd + sft + f` to find in path.
+- select the lines you want to move, `sht + opt` + up/down to move lines.
+- `fn + sht + F6` to modify variable names
 
 
 ADB logcat
