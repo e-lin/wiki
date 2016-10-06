@@ -29,7 +29,7 @@ True
 (ongoing)
 
 
-### [Accessing the index in Python for loops][R3]
+### [Accessing the index for loops][R3]
 
 ``` pyton
 for idx, val in enumerate(ints):
@@ -37,7 +37,7 @@ for idx, val in enumerate(ints):
 ```
 
 
-### [Two-dimensional array in python][R4]
+### [Two-dimensional array][R4]
 
 ``` python
 # Creates a list containing 5 lists, each of 8 items, all set to 0
@@ -116,7 +116,7 @@ while i < 10:
 ```
 
 
-### [trim whitespace (including tabs)][R11]
+### [Trim whitespace (including tabs)][R11]
 
 Whitespace on the both sides:
 
@@ -146,7 +146,7 @@ astringexample
 ```
 
 
-### [remove all whitespace in a string][R12]
+### [Remove all whitespace in a string][R12]
 
 If you want to remove leading and ending spaces, use `str.strip()`:
 
@@ -172,7 +172,7 @@ sentence = ' hello  apple'
 >>> 'hello apple'
 ```
 
-### [convert list to string][R13]
+### [Convert list to string][R13]
 By using `''.join`
 
 ``` python
@@ -187,7 +187,7 @@ str1 = ''.join(str(e) for e in list1)
 ```
 
 
-### [adding binary numbers][R14]
+### [Add binary numbers][R14]
 
 `bin` and `int` are very useful here:
 
@@ -210,6 +210,74 @@ def bin_add(*args): return bin(sum(int(x, 2) for x in args))[2:]
 '111'
 ```
 
+Dictionary
+---
+
+### [Iterate dictionary by index][R15]
+
+You can iterate over keys and get values by keys:
+
+``` python
+for key in dict.iterkeys():
+    print key, dict[key]
+```
+
+You can iterate over keys and corresponding values:
+
+``` python
+for key, value in dict.iteritems():
+    print key, value
+```
+
+You can use enumerate if you want indexes (remember that dictionaries don't have an order):
+
+``` python
+>>> for index, key in enumerate(dict):
+...     print index, key
+...
+0 orange
+1 mango
+2 apple
+>>>
+```
+
+
+### [Index a dictionary][R16]
+
+Dictionaries are unordered in Python. If you do not care about the order of the entries and want to access the keys or values by index anyway, you can use `d.keys()[i]` and `d.values()[i]` or `d.items()[i]`. (Note that these methods create a list of all keys, values or items, respectively. So if you need them more then once, store the list in a variable to improve performance.)
+
+``` python
+>>> dict
+{'blue': 5, 'yellow': 2, 'red': 3}
+>>> dict.keys()[0]
+'blue'
+>>> dict.values()[2]
+3
+>>> dict.items()[1]
+('yellow', 2)
+```
+
+If you do care about the order of the entries, starting with Python 2.7 you can use [collections.orderdDict][R17]. Or use a list of pairs
+
+``` python
+l = [("blue", "5"), ("red", "6"), ("yellow", "8")]
+```
+
+
+### [Filter a dictionary][R18]
+
+``` python
+d = dict((k, v) for k, v in d.iteritems() if v > 0)
+```
+
+In Python 2.7 and up, there's nicer syntax for this:
+
+``` python
+d = {k: v for k, v in d.items() if v > 0}
+```
+Note that this is not strictly a filter because it does create a new dictionary.
+
+
 
 Reference
 ---
@@ -231,3 +299,8 @@ Reference
 [R12]: http://stackoverflow.com/questions/8270092/python-remove-all-whitespace-in-a-string
 [R13]: http://stackoverflow.com/questions/5618878/how-to-convert-list-to-string
 [R14]: http://stackoverflow.com/questions/21420447/need-help-in-adding-binary-numbers-in-python
+[R15]: http://stackoverflow.com/questions/17793364/python-iterate-dictionary-by-index
+[R16]: http://stackoverflow.com/questions/4326658/python-index-a-dictionary
+[R17]: http://docs.python.org/library/collections.html#collections.OrderedDict
+[R18]: http://stackoverflow.com/questions/8425046/the-best-way-to-filter-a-dictionary-in-python
+
