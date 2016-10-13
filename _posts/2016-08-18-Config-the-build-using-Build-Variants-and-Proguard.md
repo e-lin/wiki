@@ -282,6 +282,35 @@ Speeding up Gradle build time
 org.gradle.daemon=true
 ```
 
+DO NOT OVERLY MATCH YOUR PROGUARD RULE
+---
+@jakewharton gave a [talk][R14] on Aug 24, 2016, saying that
+
+> Don’t use overly matchy rules. If you ever see * * in a ProGuard rules file, that is wrong 100% of the time. That is never what you should be using because you’ve effectively just nuked any advantages that you were getting from ProGuard.
+
+Our proguard rule seems a bit inappropriate due to its overly match rules. But once I cross out the rule below:
+
+```
+#-keep class net.magellan.** { *; }
+```
+The app will crash with this message:
+
+```
+E/AndroidRuntime: FATAL EXCEPTION: Timer-5
+                   Process: planet.co.jp.multilingualscanner, PID: 30833
+                   java.lang.NoSuchMethodError: no static method "Lnet/magellan/Manager;._workerResponceCallback(JII[B[B)V"
+                       at net.magellan.Manager.pollWorkerNativeEvent(Native Method)
+                       at net.magellan.c.run(SourceFile:259)
+                       at java.util.Timer$TimerImpl.run(Timer.java:284)
+```
+
+Add this to be more specific:
+
+```
+-keep class net.magellan.Manager { public static void _workerResponceCallback(long, int , int , byte[] , byte[] ); }
+```
+
+
 Today's Breakfest
 ---
 ![Imgur](http://i.imgur.com/35ZYkjo.jpg)
@@ -309,3 +338,5 @@ Reference
 [R11]: https://github.com/google/gson/tree/master/examples/android-proguard-example
 [R12]: https://developer.android.com/studio/publish/app-signing.html#studio
 [R13]: http://tools.android.com/tech-docs/new-build-system/user-guide
+[R14]: https://realm.io/news/360andev-jake-wharton-java-hidden-costs-android/?utm_source=reddit.com&utm_medium=cpc&utm_campaign=java-hidden-costs
+
