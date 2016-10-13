@@ -304,10 +304,21 @@ E/AndroidRuntime: FATAL EXCEPTION: Timer-5
                        at java.util.Timer$TimerImpl.run(Timer.java:284)
 ```
 
+and
+
+```
+E/AndroidRuntime: FATAL EXCEPTION: Timer-0
+                     Process: planet.co.jp.multilingualscanner, PID: 7274
+                     java.lang.NoSuchMethodError: no static method "Lnet/magellan/Manager;._workerErrorCallback(JII[B[B)V"
+                         at net.magellan.Manager.pollWorkerNativeEvent(Native Method)
+                         at net.magellan.c.run(SourceFile:259)
+                         at java.util.Timer$TimerImpl.run(Timer.java:284)
+```
 Add this to be more specific:
 
 ```
 -keep class net.magellan.Manager { public static void _workerResponceCallback(long, int , int , byte[] , byte[] ); }
+-keep class net.magellan.Manager { public static void _workerErrorCallback(long, int, int, byte[], byte[]); }
 ```
 
 
