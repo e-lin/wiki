@@ -104,7 +104,14 @@ $ git branch -d temp
 
 [Merging vs. Rebasing][R8]
 ---
-(ongoing)
+
+#### _Further Reading: [Git 分支 - 分支的衍合][R14]_
+
+
+```
+一旦分支中的提交物件發佈到公共倉庫，就千萬不要對該分支進行衍合操作。
+```
+
 
 [Remove a folder from git tracking][R9]
 ---
@@ -230,3 +237,4 @@ Read More
 [R11]: https://github.com/Kunena/Kunena-Forum/wiki/How-to-handle-conflicts-with-git
 [R12]: https://github.com/Kunena/Kunena-Forum/wiki/Useful-git-commands
 [R13]: http://stackoverflow.com/questions/5340724/get-changes-from-master-into-branch-in-git
+[R14]: https://git-scm.com/book/zh-tw/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E8%A1%8D%E5%90%88

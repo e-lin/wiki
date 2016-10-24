@@ -46,34 +46,6 @@ M = [[0 for y in range(items)] for x in range(lists)]
 M[4][7] = 9
 ```
 
-
-### [Comparing strings either '==' or 'is' sometimes produce a different result?][R5]
-
-``` python
->>> a = 'pub'
->>> b = ''.join(['p', 'u', 'b'])
->>> a == b
-True
->>> a is b
-False
-```
-`is` is identity testing, `==` is equality testing.
-
-In other words: `is` is the `id(a) == id(b)`
-
-
-### [Sorting list based on the length of the string][R6]
-
-``` python
-xs.sort(key = len)
-```
-You can also use the built-in [sorted][R9] function rather than the `list.sort` method, which creates a new list rather than sorting the existing one in-place:
-
-``` python
-print sorted(xs, key=len)
-```
-
-
 ### [Finding the index of an item in a list][R7]
 
 ``` python
@@ -113,6 +85,60 @@ while i < 10:
 
     # don't forget to increment `i` manually
     i += 1
+```
+
+
+### [Add binary numbers][R14]
+
+`bin` and `int` are very useful here:
+
+``` python
+a = '001'
+b = '011'
+
+c = bin(int(a,2) + int(b,2))
+# 0b100
+```
+`int` allows you to specify what base the first argument is in when converting from a string (in this case two), and `bin` converts a number back to a binary string.
+
+Or definde a function:
+```
+def bin_add(*args): return bin(sum(int(x, 2) for x in args))[2:]
+```
+
+``` python
+>>> bin_add('1', '10', '100')
+'111'
+```
+
+
+String
+---
+
+### [Comparing strings either '==' or 'is' sometimes produce a different result?][R5]
+
+``` python
+>>> a = 'pub'
+>>> b = ''.join(['p', 'u', 'b'])
+>>> a == b
+True
+>>> a is b
+False
+```
+`is` is identity testing, `==` is equality testing.
+
+In other words: `is` is the `id(a) == id(b)`
+
+
+### [Sorting list based on the length of the string][R6]
+
+``` python
+xs.sort(key = len)
+```
+You can also use the built-in [sorted][R9] function rather than the `list.sort` method, which creates a new list rather than sorting the existing one in-place:
+
+``` python
+print sorted(xs, key=len)
 ```
 
 
@@ -187,28 +213,14 @@ str1 = ''.join(str(e) for e in list1)
 ```
 
 
-### [Add binary numbers][R14]
+### [Delete a character from a string][R19]
 
-`bin` and `int` are very useful here:
+In Python, strings are immutable, so you have to create a new string. You have a few options of how to create the new string. If you want to remove the 'M' wherever it appears:
 
-``` python
-a = '001'
-b = '011'
-
-c = bin(int(a,2) + int(b,2))
-# 0b100
 ```
-`int` allows you to specify what base the first argument is in when converting from a string (in this case two), and `bin` converts a number back to a binary string.
-
-Or definde a function:
-```
-def bin_add(*args): return bin(sum(int(x, 2) for x in args))[2:]
+newstr = oldstr.replace("M", "")
 ```
 
-``` python
->>> bin_add('1', '10', '100')
-'111'
-```
 
 Dictionary
 ---
@@ -303,4 +315,4 @@ Reference
 [R16]: http://stackoverflow.com/questions/4326658/python-index-a-dictionary
 [R17]: http://docs.python.org/library/collections.html#collections.OrderedDict
 [R18]: http://stackoverflow.com/questions/8425046/the-best-way-to-filter-a-dictionary-in-python
-
+[R19]: http://stackoverflow.com/questions/3559559/how-to-delete-a-character-from-a-string-using-python
