@@ -112,6 +112,46 @@ def bin_add(*args): return bin(sum(int(x, 2) for x in args))[2:]
 ```
 
 
+### [if A vs if A is not None:][R20]
+
+``` python
+if A:
+```
+will call either `A.__nonzero__()` or `A.__len__()`. If a class defines neither __len__() nor __nonzero__(), all its instances are considered true.
+
+``` python
+if A is not None:
+```
+compares _only_ the reference `A` with `None` to see whether it is the same or not.
+
+#### _Further Reading: [Python `if x is not None` or `if not x is None`?][R21]_
+
+There's no performance difference, as they compile to the same bytecode:
+
+``` python
+Python 2.6.2 (r262:71600, Apr 15 2009, 07:20:39)
+>>> import dis
+>>> def f(x):
+...    return x is not None
+...
+>>> dis.dis(f)
+  2           0 LOAD_FAST                0 (x)
+              3 LOAD_CONST               0 (None)
+              6 COMPARE_OP               9 (is not)
+              9 RETURN_VALUE
+>>> def g(x):
+...   return not x is None
+...
+>>> dis.dis(g)
+  2           0 LOAD_FAST                0 (x)
+              3 LOAD_CONST               0 (None)
+              6 COMPARE_OP               9 (is not)
+              9 RETURN_VALUE
+```
+
+Stylistically, I try to avoid `not x is y`. Although the compiler will always treat it as `not (x is y)`, a human reader might misunderstand the construct as `(not x) is y`. If I write `x is not y` then there is no ambiguity.
+
+
 String
 ---
 
@@ -125,6 +165,8 @@ True
 >>> a is b
 False
 ```
+Since a and b has a different address in memory.
+
 `is` is identity testing, `==` is equality testing.
 
 In other words: `is` is the `id(a) == id(b)`
@@ -316,3 +358,4 @@ Reference
 [R17]: http://docs.python.org/library/collections.html#collections.OrderedDict
 [R18]: http://stackoverflow.com/questions/8425046/the-best-way-to-filter-a-dictionary-in-python
 [R19]: http://stackoverflow.com/questions/3559559/how-to-delete-a-character-from-a-string-using-python
+[R20]: http://stackoverflow.com/questions/7816363/if-a-vs-if-a-is-not-none
