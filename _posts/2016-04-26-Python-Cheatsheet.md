@@ -152,6 +152,21 @@ Python 2.6.2 (r262:71600, Apr 15 2009, 07:20:39)
 Stylistically, I try to avoid `not x is y`. Although the compiler will always treat it as `not (x is y)`, a human reader might misunderstand the construct as `(not x) is y`. If I write `x is not y` then there is no ambiguity.
 
 
+### [Reset global variable][R21]
+
+If you don't need the GLOBAL_VARIABLE anymore you could use:
+
+``` python
+del GLOBAL_VARIABLE
+```
+
+If you want a empty list:
+
+``` python
+del GLOBAL_VARIABLE[:]
+```
+
+
 String
 ---
 
@@ -359,3 +374,4 @@ Reference
 [R18]: http://stackoverflow.com/questions/8425046/the-best-way-to-filter-a-dictionary-in-python
 [R19]: http://stackoverflow.com/questions/3559559/how-to-delete-a-character-from-a-string-using-python
 [R20]: http://stackoverflow.com/questions/7816363/if-a-vs-if-a-is-not-none
+[R21]: http://stackoverflow.com/questions/3657163/how-to-reset-global-variable-in-python
