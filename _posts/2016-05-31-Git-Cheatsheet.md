@@ -222,7 +222,7 @@ Read More
 
 - [How to handle conflicts with git][R11]
 - [Useful git commands][R12]
-
+- [Git commands][R15]
 
 [R1]: http://stackoverflow.com/questions/927358/how-do-you-undo-the-last-commit
 [R2]: https://help.github.com/articles/syncing-a-fork/
@@ -238,3 +238,4 @@ Read More
 [R12]: https://github.com/Kunena/Kunena-Forum/wiki/Useful-git-commands
 [R13]: http://stackoverflow.com/questions/5340724/get-changes-from-master-into-branch-in-git
 [R14]: https://git-scm.com/book/zh-tw/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E8%A1%8D%E5%90%88
+[R15]: http://julianchu.net/2015/11/18-git.html
