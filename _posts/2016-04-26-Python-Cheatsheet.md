@@ -166,6 +166,12 @@ If you want a empty list:
 del GLOBAL_VARIABLE[:]
 ```
 
+[One line if-then statement][R22]
+
+``` python
+'Yes' if fruit == 'Apple' else 'No'
+```
+
 
 String
 ---
@@ -375,3 +381,4 @@ Reference
 [R19]: http://stackoverflow.com/questions/3559559/how-to-delete-a-character-from-a-string-using-python
 [R20]: http://stackoverflow.com/questions/7816363/if-a-vs-if-a-is-not-none
 [R21]: http://stackoverflow.com/questions/3657163/how-to-reset-global-variable-in-python
+[R22]: http://stackoverflow.com/questions/2802726/putting-a-simple-if-then-statement-on-one-line
