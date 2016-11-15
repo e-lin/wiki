@@ -124,7 +124,7 @@ if A is not None:
 ```
 compares _only_ the reference `A` with `None` to see whether it is the same or not.
 
-#### _Further Reading: [Python `if x is not None` or `if not x is None`?][R21]_
+### [Python `if x is not None` or `if not x is None`?][R21]
 
 There's no performance difference, as they compile to the same bytecode:
 
@@ -152,7 +152,7 @@ Python 2.6.2 (r262:71600, Apr 15 2009, 07:20:39)
 Stylistically, I try to avoid `not x is y`. Although the compiler will always treat it as `not (x is y)`, a human reader might misunderstand the construct as `(not x) is y`. If I write `x is not y` then there is no ambiguity.
 
 
-### [Reset global variable][R21]
+### [Reset global variable][R22]
 
 If you don't need the GLOBAL_VARIABLE anymore you could use:
 
@@ -166,7 +166,7 @@ If you want a empty list:
 del GLOBAL_VARIABLE[:]
 ```
 
-[One line if-then statement][R22]
+### [One line if-then statement][R23]
 
 ``` python
 'Yes' if fruit == 'Apple' else 'No'
@@ -285,6 +285,22 @@ newstr = oldstr.replace("M", "")
 ```
 
 
+### [Replace all non-alphanumeric characters in a string][R24]
+
+``` python
+import re
+
+s = re.sub('[^0-9a-zA-Z]+', '*', s)
+```
+
+usage:
+
+``` python
+>>> re.sub('[^0-9a-zA-Z]+', '*', 'h^&ell`.,|o w]{+orld')
+'h*ell*o*w*orld'
+```
+
+
 Dictionary
 ---
 
@@ -380,5 +396,6 @@ Reference
 [R18]: http://stackoverflow.com/questions/8425046/the-best-way-to-filter-a-dictionary-in-python
 [R19]: http://stackoverflow.com/questions/3559559/how-to-delete-a-character-from-a-string-using-python
 [R20]: http://stackoverflow.com/questions/7816363/if-a-vs-if-a-is-not-none
-[R21]: http://stackoverflow.com/questions/3657163/how-to-reset-global-variable-in-python
-[R22]: http://stackoverflow.com/questions/2802726/putting-a-simple-if-then-statement-on-one-line
+[R21]: http://stackoverflow.com/questions/2710940/python-if-x-is-not-none-or-if-not-x-is-none
+[R22]: http://stackoverflow.com/questions/3657163/how-to-reset-global-variable-in-python
+[R23]: http://stackoverflow.com/questions/2802726/putting-a-simple-if-then-statement-on-one-line
