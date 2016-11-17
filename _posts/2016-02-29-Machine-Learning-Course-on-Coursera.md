@@ -71,6 +71,7 @@ What you will learn in the course:
 - Deepmind's publication section: [Publications - Google DeepMind][R8]
 - [Professor Rich Sutton's book][R9] is must go-to place to start learning RL
 - and supplement it with David Silver's (prominant researcher at Google Deepmind) UCL video lectures: [Advanced Topics: RL][R10]
+- [LEARNING REINFORCEMENT LEARNING (WITH CODE, EXERCISES AND SOLUTIONS)][R11]
 
 
 Reference
@@ -92,3 +93,4 @@ Reference
 [R8]: http://deepmind.com/publications.html
 [R9]: https://webdocs.cs.ualberta.ca/~sutton/book/ebook/the-book.html
 [R10]: http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html
+[R11]: http://www.wildml.com/2016/10/learning-reinforcement-learning/
