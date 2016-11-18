@@ -29,6 +29,20 @@ True
 (ongoing)
 
 
+### [a, b = 1, 2 (Simultaneous assignment?)][R24]
+
+An useless fun example to work out:
+
+``` python
+>>> a = [0,0,0,0]
+>>> i, a[i], i, a[i] = range(4)
+>>> a
+[1, 0, 3, 0]
+```
+Someone says that:
+> "simultaneous assignment" doesn't even appear in the Python documentation. a, b = 1, 2 is just shorthand for (a, b) = (1, 2), which is called `sequence unpacking`.
+
+
 ### [Accessing the index for loops][R3]
 
 ``` pyton
@@ -399,3 +413,4 @@ Reference
 [R21]: http://stackoverflow.com/questions/2710940/python-if-x-is-not-none-or-if-not-x-is-none
 [R22]: http://stackoverflow.com/questions/3657163/how-to-reset-global-variable-in-python
 [R23]: http://stackoverflow.com/questions/2802726/putting-a-simple-if-then-statement-on-one-line
+[R24]: http://stackoverflow.com/questions/16409901/simultaneous-assignment-semantics-in-python
