@@ -89,6 +89,30 @@ Open/Closed Principal
 軟件應該通過擴展來實現變化, 而不是通過修改已有的代碼來實現變化(Be opened for extension, but closed for modification)
 
 
+A Recap
+---
+
+1. is talking about your **class**:<br />
+make your class simple, with a single responsibility.
+
+2. is talking about the **class and subclass**:<br />
+your subclass can always be replaced by the class. you can always overrite with more parameters to the method of the class.
+
+3. is dependecy of **class and interface**:<br />
+a driver drive a car, you do not need to specify the driver as whom, or to specify the car as BMW or something.
+
+
+4. is about the **interface**:<br />
+make your interface simple, with a single responsibility.
+
+
+5. is saying **extension instead of modification**:<br />
+your objects should be open to extend, close to modify.
+
+
+6. The last one is not in the SOLID priciple. It’s talking about **Least Knownlege Principle**, saying that if A asks B to access C. Only B has necessary to know about C. A does not. 
+
+
 Reference
 ---
 - 設計模式之禪
