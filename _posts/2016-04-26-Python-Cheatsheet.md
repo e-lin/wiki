@@ -187,6 +187,29 @@ del GLOBAL_VARIABLE[:]
 ```
 
 
+### [When is “i += x” different from “i = i + x” in Python?][R25]
+
+As a concrete example:
+
+``` python
+a = [1, 2, 3]
+b = a
+b += [1, 2, 3]
+print a  #[1, 2, 3, 1, 2, 3]
+print b  #[1, 2, 3, 1, 2, 3]
+```
+
+compared to:
+
+``` python
+a = [1, 2, 3]
+b = a
+b = b + [1, 2, 3]
+print a #[1, 2, 3]
+print b #[1, 2, 3, 1, 2, 3]
+```
+
+
 String
 ---
 
@@ -414,3 +437,4 @@ Reference
 [R22]: http://stackoverflow.com/questions/3657163/how-to-reset-global-variable-in-python
 [R23]: http://stackoverflow.com/questions/2802726/putting-a-simple-if-then-statement-on-one-line
 [R24]: http://stackoverflow.com/questions/16409901/simultaneous-assignment-semantics-in-python
+[R25]: http://stackoverflow.com/questions/15376509/when-is-i-x-different-from-i-i-x-in-python
