@@ -113,6 +113,65 @@ You will need to accept the Terms of Service at the first time.
 
 ![Imgur](http://i.imgur.com/BFPlc8o.png)
 
+When you see below message, you may upgrade the datalab version by below method:
+
+![Imgur](http://i.imgur.com/tppuxC2.png)
+
+What's new is the datalab release info [here][R5].
+
+#5. Upgrade the Datalab Version
+
+// list the current images
+
+```
+$ docker images
+REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
+nginx                          latest              abf312888d13        7 weeks ago         181.5 MB
+gcr.io/cloud-datalab/datalab   local               a496e8be8e5e        8 weeks ago         1.653 GB
+```
+
+// pull the docker image
+
+```
+$ docker pull gcr.io/cloud-datalab/datalab:local
+local: Pulling from cloud-datalab/datalab
+75a822cd7888: Pull complete
+a3ed95caeb02: Pull complete
+8bc7563039e0: Pull complete
+0159943e6d06: Pull complete
+Digest: sha256:01056cf8d09bea862f16134d4bc4b1899d13f820e92580e682a2d3a98fb9157f
+Status: Downloaded newer image for gcr.io/cloud-datalab/datalab:local
+```
+
+// list the current images, you see the old version is kept as `<none>` TAG, and the new version is tagged with `local`.
+
+
+```
+$ docker images
+REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
+gcr.io/cloud-datalab/datalab   local               ca83fac2cd0b        6 days ago          1.769 GB
+nginx                          latest              abf312888d13        7 weeks ago         181.5 MB
+gcr.io/cloud-datalab/datalab   <none>              a496e8be8e5e        8 weeks ago         1.653 GB
+```
+
+You may try to delete the old image, before doing that, remeber to stop the container that are using this old image, and delete that container.
+
+// run the container with the new image
+
+```
+$ docker run -d -it -p "127.0.0.1:4041:8080" -v "${HOME}:/content" -e "PROJECT_ID=jpower-ml" --name "datalab" gcr.io/cloud-datalab/datalab:local
+```
+
+// see the current containers
+
+```
+$ docker ps -a
+CONTAINER ID        IMAGE                                COMMAND                  CREATED             STATUS                   PORTS                      NAMES
+7349a74c4da7        gcr.io/cloud-datalab/datalab:local   "/datalab/run.sh"        3 seconds ago       Up 2 seconds             127.0.0.1:4041->8080/tcp   datalab
+```
+
+You can go to `http://localhost:4041/` now.
+
 
 ### 2. Run Cloud Datalab on Google Cloud Platform
 
@@ -301,4 +360,5 @@ Reference
 [R2]: https://www.docker.com/products/docker
 [R3]: https://cloud.google.com/sdk/downloads
 [R4]: https://cloud.google.com/compute/docs/regions-zones/regions-zones#choosing_a_region_and_zone
+[R5]: https://github.com/googledatalab/datalab/wiki/Release-Info
 
