@@ -8,6 +8,58 @@ excerpt_separator: <!--more-->
 ---
 <!--more-->
 
+### [**kwargs][R26]:
+
+We write a function `func_call_api` to call `api_function` which are not maintainable by us.
+
+``` python
+def api_function(a, b, c):
+    print a
+    print b
+    print c
+def func_call_api(a, b, c):
+    api_function(a=a+1, b=b+1, c=c+1)
+func_call_api(a=1, b=2, c=3)
+```
+
+Once the `api_function` was modified have more input in the parameters, we need to change our code:
+
+``` python
+def api_function(a, b, c, d, e):
+    print a
+    print b
+    print c
+    print d
+    print e
+def func_call_api(a, b, c, d, e):
+    api_function(a=a+1, b=b+1, c=c+1, d, e)
+func_call_api(a=1, b=2, c=3, d=4, e=5)
+```
+
+However, use `**kwargs` can save a bit time for us:
+
+``` python
+def api_function(a, b, c, d, e):
+    print a
+    print b
+    print c
+    print d
+    print e
+def func_call_api(a, b, c, **kwargs):
+    api_function(a=a, b=b, c=c, **kwargs)
+func_call_api(a=1, b=2, c=3, d=4, e=5)
+```
+
+
+### [Reflection/Introspection][R27]
+
+Reflection: find out the `type/attribute/method/class` of an object at run time. (while some programmers like compile time type check.)
+
+Python use `inspect` module to do it.
+
+see [python/others/inspect.py](https://github.com/e-lin/python/blob/master/others/inspect.py)
+
+
 Built-in Functions
 ---
 
@@ -184,6 +236,29 @@ del GLOBAL_VARIABLE[:]
 
 ``` python
 'Yes' if fruit == 'Apple' else 'No'
+```
+
+
+### [When is “i += x” different from “i = i + x” in Python?][R25]
+
+As a concrete example:
+
+``` python
+a = [1, 2, 3]
+b = a
+b += [1, 2, 3]
+print a  #[1, 2, 3, 1, 2, 3]
+print b  #[1, 2, 3, 1, 2, 3]
+```
+
+compared to:
+
+``` python
+a = [1, 2, 3]
+b = a
+b = b + [1, 2, 3]
+print a #[1, 2, 3]
+print b #[1, 2, 3, 1, 2, 3]
 ```
 
 
@@ -414,3 +489,6 @@ Reference
 [R22]: http://stackoverflow.com/questions/3657163/how-to-reset-global-variable-in-python
 [R23]: http://stackoverflow.com/questions/2802726/putting-a-simple-if-then-statement-on-one-line
 [R24]: http://stackoverflow.com/questions/16409901/simultaneous-assignment-semantics-in-python
+[R25]: http://stackoverflow.com/questions/15376509/when-is-i-x-different-from-i-i-x-in-python
+[R26]: http://sholfen.pixnet.net/blog/post/62011318
+[R27]: https://smalltowntechblog.com/2016/03/11/python-%E5%BE%9E-c-%E7%9A%84-reflection-%E5%88%B0-python-%E7%9A%84-inspect/
