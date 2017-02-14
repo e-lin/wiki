@@ -62,7 +62,7 @@ Variables maintain state across executions of the graph, and must be initialized
 
 ``` python
 state = tf.Variable(0, name=“counter”)
-init_op = tf.initilize_all_variables()
+init_op = tf.initialize_all_variables()
 sess.run(init_op)
 ```
 #2. using the run() method of its initializer op:
