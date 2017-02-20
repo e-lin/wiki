@@ -8,10 +8,8 @@ excerpt_separator: <!--more-->
 ---
 <!--more-->
 
-Steps
+Get the current version of the installed TensorFlow
 ---
-
-### Get the current version of the installed TensorFlow
 
 Import the TensorFlow module, and then print out `tf.__version__`
 
@@ -32,7 +30,8 @@ $ pip list | grep tensorflow
 tensorflow (0.7.1)
 ```
 
-### Update the TensorFlow
+Update the TensorFlow
+---
 
 If you are upgrading from a previous installation of TensorFlow < 0.7.1, you should uninstall the previous TensorFlow and protobuf using `pip uninstall` first to make sure you get a clean installation of the updated protobuf dependency.
 
@@ -48,39 +47,62 @@ $ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorf
 $ sudo pip install --upgrade $TF_BINARY_URL
 ```
 
-### Update the TensorFlow over Google Datalab?
+Update the TensorFlow over Google Datalab?
+---
+
+### Update the docker image built by Datalab
+
+List all the docker:
+
+```
+$ docker ps -a
+CONTAINER ID        IMAGE                                         COMMAND                  CREATED             STATUS                   PORTS                      NAMES
+4e8c6ecdbe98        gcr.io/cloud-datalab/datalab:local            "/datalab/run.sh"        2 weeks ago         Up 21 minutes            127.0.0.1:4041->8080/tcp   datalab
+```
+
+As we have pulled the docker image built by Datalab team, there could be an update for the docker image.
+
+Paster this path `gcr.io/cloud-datalab/datalab` into your browser, the browser will lead you to `https://console.cloud.google.com/kubernetes/images/tags/datalab?location=GLOBAL&project=cloud-datalab`.
+
+Then you see a lot of versions of docker image over their Container Registry.
+
+![Imgur](http://i.imgur.com/13FYH1f.png)
+
+Try to pull the version of `local-20170218`, and create a new docker to launch the image.
+
+```
+$ docker ps -a
+CONTAINER ID        IMAGE                                         COMMAND                  CREATED             STATUS                   PORTS                      NAMES
+d072d60618c8        gcr.io/cloud-datalab/datalab:local-20170218   "/datalab/run.sh"        21 hours ago        Up 21 hours              127.0.0.1:2021->8080/tcp   dalatab-20170218
+4e8c6ecdbe98        gcr.io/cloud-datalab/datalab:local            "/datalab/run.sh"        2 weeks ago         Up 21 minutes            127.0.0.1:4041->8080/tcp   datalab
+```
+
+Open the notebook over the browser, then try to print out the version of TensorFlow. You will found the version get to upgrade!
+
+
+### Use %%bash to update directly
 
 The post over stackoverflow said:
 
-
-
-
-
-
-
-### Issues I Met
-
-
-
+> If you want to temporarily install a newer version into your existing environment for testing purposes **(although this isn't recommended)** , then you could try installing tensorflow with the no dependencies option `(--no-deps)` in order to reduce the chance of breaking the working datalab environment.
 
 ```
-AttributeErrorTraceback (most recent call last)
-<ipython-input-15-b86dbbf94704> in <module>()
-    101
-    102 if __name__ == '__main__':
---> 103   main()
-
-<ipython-input-15-b86dbbf94704> in main()
-     79     actual = sess.run(y, feed_dict = {y: chuatu.test.labels})
-     80
----> 81     tp = tf.cast(tf.count_nonzero(predicted * actual), tf.float)
-     82     print(type(tp))
-     83     tn = tf.count_nonzero((predicted - 1) * (actual - 1))
-
-AttributeError: 'module' object has no attribute 'float'
-
+%%bash
+wget https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0-cp27-none-linux_x86_64.whl && pip install --ignore-installed --no-deps tensorflow-0.8.0-cp27-none-linux_x86_64.whl
 ```
 
+Go the check over `https://storage.googleapis.com/tensorflow/`, you see a lot of versions by filtering with the keyword `linux/cpu/tensorflow-0.12.0-`. However, I am not aware of the difference between `cp27-none-linux_x86_64.whl`, `cp34-cp34m-linux_x86_64.whl`, `0-cp35-cp35m-linux_x86_64.whl`, and so on.
+
+Just try to run with:
+
+```
+%%bash
+wget https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0-cp27-none-linux_x86_64.whl && pip install --ignore-installed --no-deps tensorflow-0.12.0-cp27-none-linux_x86_64.whl
+```
+
+After running the above command, you should see tensorflow is at version 0.12.0.
+
+![Imgur](http://i.imgur.com/Bm7HU68.png)
 
 
 Reference
