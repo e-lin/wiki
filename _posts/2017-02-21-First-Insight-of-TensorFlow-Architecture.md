@@ -255,6 +255,10 @@ Possible approaches:
 // How Baidu accelerate
 - [Baidu's 'Ring Allreduce' Library Increases Machine Learning Efficiency Across Many GPU Nodes][R11]
 
+Coming up...
+
+- [Understand Op Registration and Kernel Linking in TensorFlow][R12]
+- [No OpKernel was registered to support Op 'L2Loss' with these attrs [[Node: L2Loss = L2Loss[T=DT_INT64](L2Loss/t)]]][R13]
 
 Reference
 ---
@@ -275,3 +279,5 @@ Reference
 [R9]: http://stackoverflow.com/questions/41067398/task-assignment-in-tensorflow-distributed-process
 [R10]: https://www.tensorflow.org/deploy/distributed#putting_it_all_together_example_trainer_program
 [R11]: http://www.tomshardware.com/news/baidu-svail-ring-allreduce-library,33691.html
+[R12]: http://stackoverflow.com/questions/37548662/understand-op-registration-and-kernel-linking-in-tensorflow
+[R13]: http://stackoverflow.com/questions/41385137/no-opkernel-was-registered-to-support-op-l2loss-with-these-attrs-node-l2los
