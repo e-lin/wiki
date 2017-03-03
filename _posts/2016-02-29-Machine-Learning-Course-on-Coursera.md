@@ -93,6 +93,7 @@ See What Other Engineers Read
     - [9 Lessons Learned from a Decade Spent Developing Machine Learning Products][R21]
     - [CNN(卷积神经网络)、RNN(循环神经网络)、DNN(深度神经网络)的内部网络结构有什么区别？][R22]
 - [ML Materials Collection (by a self-driving car engineer)][R23]
+- [Lessons Learned from Deploying Deep Learning at Scale][R24]
 
 
 Reference
@@ -128,3 +129,4 @@ Reference
 [R21]: http://media.bemyapp.com/lessons-learned-decade-spent-developing-machine-learning-products/
 [R22]: https://www.zhihu.com/question/34681168/answer/84061846
 [R23]: http://www.elvawyf.com/2016/09/17/en/Materials/#more
+[R24]: http://blog.algorithmia.com/deploying-deep-learning-cloud-services/
