@@ -94,6 +94,7 @@ See What Other Engineers Read
     - [CNN(卷积神经网络)、RNN(循环神经网络)、DNN(深度神经网络)的内部网络结构有什么区别？][R22]
 - [ML Materials Collection (by a self-driving car engineer)][R23]
 - [Lessons Learned from Deploying Deep Learning at Scale][R24]
+- [CS 20SI: Tensorflow for Deep Learning Research][R25]
 
 
 Reference
@@ -130,3 +131,4 @@ Reference
 [R22]: https://www.zhihu.com/question/34681168/answer/84061846
 [R23]: http://www.elvawyf.com/2016/09/17/en/Materials/#more
 [R24]: http://blog.algorithmia.com/deploying-deep-learning-cloud-services/
+[R25]: http://web.stanford.edu/class/cs20si/syllabus.html?1488584322269=1
