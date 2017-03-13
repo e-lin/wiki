@@ -96,6 +96,7 @@ See What Other Engineers Read
 - [Lessons Learned from Deploying Deep Learning at Scale][R24]
 - [CS 20SI: Tensorflow for Deep Learning Research][R25]
 - [Automatic Colorization][R26]
+- [Online graduate-level machine learning course from CMU's Tom Mitchell][R27] via [Hacker News][R28]
 
 
 Reference
@@ -134,3 +135,5 @@ Reference
 [R24]: http://blog.algorithmia.com/deploying-deep-learning-cloud-services/
 [R25]: http://web.stanford.edu/class/cs20si/syllabus.html?1488584322269=1
 [R26]: http://tinyclouds.org/colorize/
+[R27]: http://www.cs.cmu.edu/~tom/10701_sp11/lectures.shtml
+[R28]: https://news.ycombinator.com/item?id=3199718
