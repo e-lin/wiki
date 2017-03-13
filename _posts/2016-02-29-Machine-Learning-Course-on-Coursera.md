@@ -95,6 +95,7 @@ See What Other Engineers Read
 - [ML Materials Collection (by a self-driving car engineer)][R23]
 - [Lessons Learned from Deploying Deep Learning at Scale][R24]
 - [CS 20SI: Tensorflow for Deep Learning Research][R25]
+- [Automatic Colorization][R26]
 
 
 Reference
@@ -132,3 +133,4 @@ Reference
 [R23]: http://www.elvawyf.com/2016/09/17/en/Materials/#more
 [R24]: http://blog.algorithmia.com/deploying-deep-learning-cloud-services/
 [R25]: http://web.stanford.edu/class/cs20si/syllabus.html?1488584322269=1
+[R26]: http://tinyclouds.org/colorize/
