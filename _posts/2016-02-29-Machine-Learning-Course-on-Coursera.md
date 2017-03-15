@@ -97,6 +97,10 @@ See What Other Engineers Read
 - [CS 20SI: Tensorflow for Deep Learning Research][R25]
 - [Automatic Colorization][R26]
 - [Online graduate-level machine learning course from CMU's Tom Mitchell][R27] via [Hacker News][R28]
+- [Udacity: Deep Learning by Google][R29]
+- [See GCP' Solutions for Machine Learning with Financial Time Series Data][R30]
+- [6 Ways Companies Leverage Machine Learning Algorithms][R31]
+- [Android 之父 Andy Rubin 新挑戰：讓 AI 無所不在][R32]
 
 
 Reference
@@ -137,3 +141,7 @@ Reference
 [R26]: http://tinyclouds.org/colorize/
 [R27]: http://www.cs.cmu.edu/~tom/10701_sp11/lectures.shtml
 [R28]: https://news.ycombinator.com/item?id=3199718
+[R29]: https://www.udacity.com/course/deep-learning--ud730
+[R30]: https://cloud.google.com/solutions/machine-learning-with-financial-time-series-data
+[R31]: https://www.daxx.com/article/machine-learning-insights-for-your-business
+[R32]: https://www.inside.com.tw/2016/03/15/andy-rubin-unleashed-android-on-the-world-now-watch-him-do-the-same-with-ai
