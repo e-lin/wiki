@@ -6,7 +6,7 @@ categories: jekyll update
 type: Tensorflow
 excerpt_separator: <!--more-->
 ---
-For the two months that I have scarified with my spare time doing this :-)
+For the two months that I have sacrificed my spare time to do this :-)
 <!--more-->
 
 *A bit summery for main topics I’ve learned from this machine learning course:*
@@ -74,13 +74,43 @@ What you will learn in the course:
 - [LEARNING REINFORCEMENT LEARNING (WITH CODE, EXERCISES AND SOLUTIONS)][R11]
 
 
+Others You Could Do
+---
+
+Suggested by [サービスをつくるエンジニアが機械学習を学ぶべき3つの理由][R12], you could probably read the following resources.
+
+- [Rules of Machine Learning: Best Practices for ML Engineering][R13]
+- [Kaggle Data Science Use Cases][R14]
+- [DataQuest][R15]
+- [Hands-On Machine Learning with Scikit-Learn and TensorFlow][R16]
+- [Python機械学習プログラミング][R17] ([監訳者による読み方][R18]が参考になる)
+- [戦略的データサイエンス入門][R19]
+
+
+See What Other Engineers Read
+---
+- [Machine Learning Reading resources][R20]
+    - [9 Lessons Learned from a Decade Spent Developing Machine Learning Products][R21]
+    - [CNN(卷积神经网络)、RNN(循环神经网络)、DNN(深度神经网络)的内部网络结构有什么区别？][R22]
+- [ML Materials Collection (by a self-driving car engineer)][R23]
+- [Lessons Learned from Deploying Deep Learning at Scale][R24]
+- [CS 20SI: Tensorflow for Deep Learning Research][R25]
+- [Automatic Colorization][R26]
+- [Online graduate-level machine learning course from CMU's Tom Mitchell][R27] via [Hacker News][R28]
+- [Udacity: Deep Learning by Google][R29]
+- [See GCP' Solutions for Machine Learning with Financial Time Series Data][R30]
+- [6 Ways Companies Leverage Machine Learning Algorithms][R31]
+- [Android 之父 Andy Rubin 新挑戰：讓 AI 無所不在][R32]
+
+
 Reference
 ---
-- [Stanford University’s Machine Learning course on Coursera][R1]<br />
-- [Stanford Unsupervised Feature Learning and Deep Learning Tutorial][R2]<br />
-- [7 Steps to Mastering Machine Learning With Python][R3]<br />
-- [Neural Networks and Deep Learning free online book][R4]<br />
+- [Stanford University’s Machine Learning course on Coursera][R1]
+- [Stanford Unsupervised Feature Learning and Deep Learning Tutorial][R2]
+- [7 Steps to Mastering Machine Learning With Python][R3]
+- [Neural Networks and Deep Learning free online book][R4]
 - [I have completed Andrew Ng's Coursera class on Machine Learning. What should I do next? What *can* I do next?][R5]
+- [サービスをつくるエンジニアが機械学習を学ぶべき3つの理由][R12]
 
 
 [R1]: https://www.coursera.org/learn/machine-learning/
@@ -94,3 +124,24 @@ Reference
 [R9]: https://webdocs.cs.ualberta.ca/~sutton/book/ebook/the-book.html
 [R10]: http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html
 [R11]: http://www.wildml.com/2016/10/learning-reinforcement-learning/
+[R12]: http://developers.freee.co.jp/entry/3-reasons-machine-learning-for-application-engineers
+[R13]: http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf
+[R14]: https://www.kaggle.com/wiki/DataScienceUseCases
+[R15]: http://dataquest.io/
+[R16]: http://shop.oreilly.com/product/0636920052289.do
+[R17]: https://www.amazon.co.jp/dp/4844380605
+[R18]: https://thinkit.co.jp/article/9926
+[R19]: https://www.amazon.co.jp/dp/4873116856
+[R20]: https://github.com/justlaputa/reading
+[R21]: http://media.bemyapp.com/lessons-learned-decade-spent-developing-machine-learning-products/
+[R22]: https://www.zhihu.com/question/34681168/answer/84061846
+[R23]: http://www.elvawyf.com/2016/09/17/en/Materials/#more
+[R24]: http://blog.algorithmia.com/deploying-deep-learning-cloud-services/
+[R25]: http://web.stanford.edu/class/cs20si/syllabus.html?1488584322269=1
+[R26]: http://tinyclouds.org/colorize/
+[R27]: http://www.cs.cmu.edu/~tom/10701_sp11/lectures.shtml
+[R28]: https://news.ycombinator.com/item?id=3199718
+[R29]: https://www.udacity.com/course/deep-learning--ud730
+[R30]: https://cloud.google.com/solutions/machine-learning-with-financial-time-series-data
+[R31]: https://www.daxx.com/article/machine-learning-insights-for-your-business
+[R32]: https://www.inside.com.tw/2016/03/15/andy-rubin-unleashed-android-on-the-world-now-watch-him-do-the-same-with-ai
