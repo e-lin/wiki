@@ -1,3 +1,12 @@
+---
+layout: post
+title:  "Using Git-squash and Merge Your Coworker's Branch into Your Branch"
+date:   2017-09-30 00:00:00 +0900
+categories: jekyll update
+type: Git/Github
+excerpt_separator: <!--more-->
+---
+
 Using Git-squash and Merge Your Coworker's Branch into Your Branch
 ---
 
